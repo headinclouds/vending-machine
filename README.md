@@ -10,6 +10,9 @@ https://headinclouds.github.io/vending-machine/
 1. You need to install node.js on your computer (https://nodejs.org/en/)
 2. From root of project run `npm install`.
 
+## Algorithm
+/src/app/app.component.ts
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
