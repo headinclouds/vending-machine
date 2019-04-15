@@ -16,15 +16,16 @@ export class AppComponent {
   resultChangeArr: Array<number> = [];
   firstMatch: boolean = false;
   model = new Coins('', '');
-
+  newDrink: number;
 
   listDrinks = [
-    { name: 'Cola', cost: 150, drinkNumber: 1, exist: true },
-    { name: 'Pepsi', cost: 120, drinkNumber: 2, exist: true },
-    { name: 'Cold Tea', cost: 90, drinkNumber: 3, exist: true },
-    { name: 'Cold Tea1', cost: 80, drinkNumber: 4, exist: true },
-    { name: 'Coffee', cost: 190, drinkNumber: 5, exist: true },
-    { name: 'Latte', cost: 170, drinkNumber: 6, exist: false }
+    { name: 'Water', cost: 10, drinkNumber: 1, exist: true },
+    { name: 'Cola', cost: 30, drinkNumber: 2, exist: true },
+    { name: 'Pepsi', cost: 40, drinkNumber: 3, exist: true },
+    { name: 'Cold Tea', cost: 90, drinkNumber: 4, exist: true },
+    { name: 'Cold Tea1', cost: 120, drinkNumber: 5, exist: true },
+    { name: 'Coffee', cost: 190, drinkNumber: 6, exist: false },
+    { name: 'Latte', cost: 170, drinkNumber: 7, exist: true }
   ];
   listCoinsInMachine = [10, 20, 50, 100, 200];
 
@@ -40,6 +41,7 @@ export class AppComponent {
           if (drink.drinkNumber === this.model.drinkNumber) {
             if (this.total >= drink.cost && drink.exist) {
               this.drinkName = drink.name;
+              drink.exist = false;
               this.yourChange = this.total - drink.cost;
             }
             else if (this.total < drink.cost) {
@@ -59,6 +61,13 @@ export class AppComponent {
       this.error = 'Not correct coin';
     }
 
+  }
+
+  onSubmitDrink(){
+    this.listDrinks.filter((drink) => {
+      if (drink.drinkNumber === this.newDrink) {
+        drink.exist = true;
+      }})
   }
 
   private resetValues() {

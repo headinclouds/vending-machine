@@ -5,8 +5,11 @@
     </h1>
     <h3 class="col-12">Please make your choise</h3>
     <div *ngFor="let drink of listDrinks" class="col-12">
-      {{drink.drinkNumber}}. <strong>{{drink.name}}:</strong> {{drink.cost}} cents
+      {{drink.drinkNumber}}. <strong>{{drink.name}}:</strong> {{drink.cost}} cents 
+      <span class="badge badge-danger" *ngIf="!drink.exist">Sold out</span>
+
     </div>
+    <div class="col-12">Machine accepts <strong>10, 20, 50, 100, 200</strong> coins</div>
   </div>
 
   <div class="row">
@@ -16,6 +19,11 @@
       <input type="number" class="form-control" [(ngModel)]="model.drinkNumber" name="drinkNumber"
         placeholder="Please put number of drink">
       <button type="submit" class="btn btn-success" [disabled]="!model.amount">Submit</button>
+    </form>
+    <form (ngSubmit)="onSubmitDrink()" class="col-6 form-group">
+        <input type="number" class="form-control" required [(ngModel)]="newDrink" name="newDrink"
+          placeholder="Add drink by number" />
+        <button type="submit" class="btn btn-success" [disabled]="!newDrink">Submit</button>
     </form>
   </div>
   <div class="row">

@@ -1,6 +1,7 @@
 {
   "name": "vending-machine",
   "version": "0.0.0",
+  "homepage": "https://headinclouds.github.io/vending-machine/",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

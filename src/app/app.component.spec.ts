@@ -52,7 +52,7 @@ describe('AppComponent', () => {
 
   it(`should throw an error if input is not enough`, () => {
     component.model.amount = 100;
-    component.model.drinkNumber = 1;
+    component.model.drinkNumber = 5;
     component.onSubmit();
     expect(component.error).toEqual(`Input is not enough`);
   });
